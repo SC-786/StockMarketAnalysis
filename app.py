@@ -8,11 +8,6 @@ import time
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
 
-#
-# @app.route("/stockprice/")
-# def index():
-#   return render_template("index.html", relative_to=".")
-
 @app.route("/", methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
@@ -21,17 +16,13 @@ def index():
 
         # Generate the stock data and graph
         data = stocks_data(symbol, time_range)
-
         ticker = data[0][0]
-        date = data[0][1]
-        start = data[0][3]
-        end = data[-1][6]
 
         # Generate the graph
         stock = []
         time_list = []
         for i in data:
-            if i[2] >= '09:30:00' and i[2] <= '16:00:00':
+            if '09:30:00' <= i[2] <= '16:00:00':
                 open_price = i[3]
                 close_price = i[6]
                 t = time.strptime(i[2], "%H:%M:%S")
@@ -62,3 +53,5 @@ def index():
 @app.route('/about')
 def about():
     return 'The about page'
+
+app.run(debug=True)

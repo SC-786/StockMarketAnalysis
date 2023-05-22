@@ -1,12 +1,18 @@
-<!-- index.html -->
-<form method="POST" action="{{ url_for('index') }}">
-    <!-- index.html -->
-<form method="POST" action="{{ url_for('index') }}">
-  <label for="symbol">Enter a stock symbol name (e.g., AAPL): </label>
-  <input type="text" id="symbol" name="symbol" required><br><br>
-
-  <label for="time_range">How long ago do you want to view the stock price (e.g., 1D, 5D, 1M): </label>
-  <input type="text" id="time_range" name="time_range" required><br><br>
-
-  <input type="submit" value="Submit">
-</form>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stock Graph</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <div class="form-container">
+    <form method="POST" action="{{ url_for('index') }}">
+      <label for="symbol" class="label">Enter a stock symbol name (e.g. AAPL): </label>
+      <input type="text" id="symbol" name="symbol" class="input" required><br><br>
+      <label for="time_range" class="label">Specify the time frame for which you would like to access the stock price (e.g., 1, 5, or 30 days ago): </label>
+      <input type="text" id="time_range" name="time_range" class="input" required><br><br>
+      <input type="submit" value="Submit" class="button">
+    </form>
+  </div>
+</body>
+</html>

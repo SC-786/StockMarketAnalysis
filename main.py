@@ -2,9 +2,6 @@ import sqlite3
 from scrape import intra_day_data
 def stocks_data(ticker, howlonggo):
 
-    if howlonggo == '5D':
-        howlonggo = 5
-
     conn = sqlite3.connect('stocks.db')
     cursor = conn.cursor()
 
@@ -36,14 +33,13 @@ def stocks_data(ticker, howlonggo):
     elif count > 0:
         cursor.execute("SELECT * FROM stock_data WHERE ticker = ? AND date = ?", (ticker, latest_date_url))
         data = cursor.fetchall()
-
     else:
         for data in stock_data[::-1]:
             date = data[0].split()[0]
             time = data[0].split()[1]
             stock_open, high, low, close, volume = data[1:6]
 
-            # Check if the same data already exists in the table, if not then then perform insertion
+            # Check if the same data already exists in the table, if not then perform insertion
             cursor.execute(
                 "INSERT INTO stock_data (ticker, date, time, open, high, low, close, volume) "
                 "SELECT ?, ?, ?, ?, ?, ?, ?, ? "

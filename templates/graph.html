@@ -1,12 +1,42 @@
-<!-- graph.html -->
 <!DOCTYPE html>
 <html>
 <head>
   <title>Stock Graph</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <style>
+    .graph-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 100px;
+    }
+
+    h1 {
+      font-size: 24px;
+      color: #333;
+    }
+
+    img {
+      width: 500px;
+      height: auto;
+      margin-top: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #fff;
+      color: #fff;
+      text-decoration: none;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
-  <h1>Stock Graph</h1>
-  <img src="{{ url_for('static', filename='images/chart.png') }}" alt="Stock Chart">
-  <a href="{{ url_for('index') }}" class="btn">Different Stock?</a>
+  <div class="graph-container">
+    <h1>Stock Graph</h1>
+    <img src="{{ url_for('static', filename='images/chart.png') }}" alt="Stock Chart">
+    <a href="{{ url_for('index') }}" class="btn">Different Stock?</a>
+  </div>
 </body>
 </html>
