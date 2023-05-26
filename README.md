@@ -8,4 +8,5 @@ The Stock Market Analysis project on GitHub provides real-time stock market anal
 4. User-Friendly Interface: The project offers a user-friendly interface that allows seamless input of ticker symbols and time frames. With support for over 500 tickers, the interface generates insightful analysis results tailored to the user's preferences.
 
 
-![output](https://github.com/SC-786/StockMarketAnalysis/assets/114730258/ee69472b-03cf-4380-9877-0b5224fa0413)
+
+![output](https://github.com/SC-786/StockMarketAnalysis/assets/114730258/c35cb012-d179-423f-bd7a-317d4b825c23)
